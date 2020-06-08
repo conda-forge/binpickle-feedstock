@@ -1,18 +1,18 @@
 {% set name = "binpickle" %}
-{% set version = "0.3.1" %}
+{% set version = "0.3.2" %}
 package:
   name: {{ name | lower }}
   version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 41544aac0ce5725d7a6e535fa361f86a64b14bdad649872b495b04823eb2bb3a
+  sha256: fbd019e2160d279a41e3d5f9e9ea038e0c361fb6f5eecea8373666cf2865a4d1
 
 build:
   number: 0
   # Binpickle is only tested on Python 3.6 and later.
-  skip: True  # [py<36]
-  script: "{{ PYTHON }} -m pip install --no-deps ."
+  skip: true  # [py<36]
+  script: {{ PYTHON }} -m pip install --no-deps .
 
 requirements:
   host:
