@@ -9,7 +9,7 @@ source:
   sha256: fbd019e2160d279a41e3d5f9e9ea038e0c361fb6f5eecea8373666cf2865a4d1
 
 build:
-  number: 0
+  number: 1
   # Binpickle is only tested on Python 3.6 and later.
   skip: true  # [py<36]
   script: {{ PYTHON }} -m pip install --no-deps .
