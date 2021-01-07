@@ -33,7 +33,7 @@ test:
     - pandas >= 1.0
     - numpy >= 1.17
     # numcodecs is only packaged for x86-64 - run without those tests on other platformss
-    - numcodecs # [not x86_64]
+    - numcodecs  # [not x86_64]
   source_files:
     - tests
     - tests/*.py
