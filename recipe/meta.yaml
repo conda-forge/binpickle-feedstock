@@ -25,9 +25,21 @@ requirements:
     - pickle5  # [py<38]
 
 test:
+  requires:
+    - pytest
+    - pytest-cov
+    - hypothesis
+    - pandas >= 1.0
+    - numpy >= 1.17
+    - numcodecs
+  source_files:
+    - tests
+    - tests/*.py
   imports:
     - binpickle
     - binpickle.codecs.blosc
+  commands:
+    - python -m pytest tests
 
 about:
   home: https://binpickle.lenskit.org
