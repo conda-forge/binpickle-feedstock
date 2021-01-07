@@ -11,7 +11,7 @@ source:
 build:
   number: 0
   # Binpickle is only tested on Python 3.6 and later.
-  skip: true  # [py<36]
+  skip: true  # [py<36 or python_impl == 'pypy']
   script: {{ PYTHON }} -m pip install --no-deps .
 
 requirements:
