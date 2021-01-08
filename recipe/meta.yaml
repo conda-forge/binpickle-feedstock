@@ -9,7 +9,7 @@ source:
   sha256: d1597398284101020552ac909b5939ecc4e3f38fda3a6b02f1f2db99bc748947
 
 build:
-  number: 0
+  number: 1
   # Binpickle is only tested on Python 3.6 and later
   # Dependencies are missing on pypy, and pickle5 is only on x86-64
   skip: true  # [py<36 or python_impl == 'pypy' or (py<38 and not x86_64)]
@@ -33,6 +33,8 @@ test:
     - numpy >= 1.17
     # numcodecs is only packaged for x86-64 - run without those tests on other platformss
     - numcodecs  # [x86_64]
+  files:
+    - conftest.py
   source_files:
     - tests
     - tests/*.py
