@@ -1,12 +1,12 @@
 {% set name = "binpickle" %}
-{% set version = "0.3.3" %}
+{% set version = "0.3.4" %}
 package:
   name: {{ name | lower }}
   version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: d1597398284101020552ac909b5939ecc4e3f38fda3a6b02f1f2db99bc748947
+  sha256: 13a35953d7f3470d571a97a904cbd42875b9a2a69a7181bf9a6e034d415426ee
 
 build:
   number: 0
@@ -16,9 +16,13 @@ build:
   script: {{ PYTHON }} -m pip install --no-deps .
 
 requirements:
+  build:
+    - python                                # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}    # [build_platform != target_platform]
   host:
     - python
     - pip
+    - flit-core >=2
   run:
     - python
     - python-blosc
@@ -33,6 +37,8 @@ test:
     - numpy >= 1.17
     # numcodecs is only packaged for x86-64 - run without those tests on other platformss
     - numcodecs  # [x86_64]
+  files:
+    - conftest.py
   source_files:
     - tests
     - tests/*.py
