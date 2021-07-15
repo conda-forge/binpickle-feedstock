@@ -37,6 +37,8 @@ test:
     - numpy >= 1.17
     # numcodecs is only packaged for x86-64 - run without those tests on other platformss
     - numcodecs  # [x86_64]
+  files:
+    - conftest.py
   source_files:
     - tests
     - tests/*.py
