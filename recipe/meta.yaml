@@ -9,7 +9,7 @@ source:
   sha256: 13a35953d7f3470d571a97a904cbd42875b9a2a69a7181bf9a6e034d415426ee
 
 build:
-  number: 1
+  number: 2
   # Binpickle is only tested on Python 3.6 and later
   # Dependencies are missing on pypy, and pickle5 is only on x86-64
   skip: true  # [py<36 or python_impl == 'pypy' or (py<38 and not x86_64)]
