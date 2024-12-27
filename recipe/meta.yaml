@@ -5,21 +5,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 13a35953d7f3470d571a97a904cbd42875b9a2a69a7181bf9a6e034d415426ee
 
 build:
-  number: 2
+  number: 3
   noarch: python
   script: {{ PYTHON }} -m pip install --no-deps .
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - pip
     - flit-core >=3.2
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - python-blosc
     - msgpack-python >=1.0
     - numcodecs
@@ -30,6 +30,7 @@ test:
     - hypothesis
     - pandas >= 1.0
     - numpy >= 1.17
+    - python {{ python_min }}
   files:
     - conftest.py
   source_files:
